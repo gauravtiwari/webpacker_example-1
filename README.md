@@ -1,5 +1,7 @@
 # Usage
 
+Run `rails s` & `ruby ./bin/webpack-dev-server` in separate terminal windows. Foreman does currently not work for me, so I have not added it.
+
 You can switch between webpack/sprockets for javascript by commenting/uncommenting in `app/views/layouts/application.html.erb`.
 
 Commenting out `import './../cable'` in `app/javascript/packs/application.js` confirms that the webpack is loading. -> console: `'Hello World from Webpacker'`
