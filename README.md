@@ -37,6 +37,8 @@ $ yarn add rails-ujs turbolinks jquery jquery-ui actioncable
 
 # update app/views/layouts/application.html.erb to load javascript pack 'application'
 
+$ rails assets:precompile
+
 # try to add more packages with yarn. they will not work imported with webpack
 ```
 
