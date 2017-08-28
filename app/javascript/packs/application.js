@@ -8,10 +8,26 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'rails-ujs'
-import 'turbolinks'
-import 'jquery'
-import 'jquery-ui'
+import * as Turbolinks from 'turbolinks'
+import * as $ from 'jquery'
+import 'jquery-ui/ui/widgets/draggable'
+import WS from '../cable'
 
-import './../cable'
+// Start turbolinks
+Turbolinks.start()
 
+// Some action cable demo
+WS.echo = WS.consumer.subscriptions.create('EchoChannel', {
+  connected: () => console.log('Actioncable connected'),
+  disconnected: () => console.log('Actioncable disconnected'),
+  received: (data) => console.log('Actioncable data recieved', data)
+});
+
+// message node will hide in 2s
+setTimeout(() => $('#message').hide(), 2000)
+
+// Some jquery-ui demo
+document.addEventListener('DOMContentLoaded', () => $('#draggable').draggable())
+
+// Log some messgae
 console.log('Hello World from Webpacker')
